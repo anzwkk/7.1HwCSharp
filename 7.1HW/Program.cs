@@ -25,12 +25,48 @@ class Program
                             PrintBoard();
                             Console.WriteLine($"Переміг гравець {currentPlayer}!");
                             gameRunning = false;
-                        }    
+                        }
+                        else
+                        {
+                            bool allFilled = true;
+                            foreach (char cell in board)
+                            {
+                                if (cell == '1' || cell == '2' || cell == '3' || cell == '4' ||
+                                    cell == '5' || cell == '6' || cell == '7' || cell == '8' ||
+                                    cell == '9')
+                                {
+                                    allFilled = false;
+                                    break;
+                                }
+                            }
+
+                            if(allFilled)
+                            {
+                                PrintBoard();
+                                Console.WriteLine("Нічия!");
+                                gameRunning = false;
+                            }
+                            else
+                            {
+                                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                            }    
+                        }
                     }
-
+                    else
+                    {
+                        Console.WriteLine("Ця клітинка вже зайнята. Спробуйте іншу");
+                    }
                 }
-            }    
+                else
+                {
+                    Console.WriteLine("Некоректний ввід. Виберіть клітинку від 1 до 9");
+                }
 
+            }
+            else
+            {
+                Console.WriteLine("Некоректний ввід. Виберіть клітинку від 1 до 9");
+            }
         }
     }
     static bool CheckWin()
