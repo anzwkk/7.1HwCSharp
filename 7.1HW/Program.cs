@@ -10,6 +10,7 @@ class Program
         bool gameRunning = true;
         while (gameRunning)
         {
+            Console.Clear();
             PrintBoard();
             Console.Write($"Гравець {currentPlayer}, виберіть клітинку (1-9): ");
             if (int.TryParse(Console.ReadLine(), out move))
@@ -22,6 +23,7 @@ class Program
 
                         if (CheckWin())
                         {
+                            Console.Clear();
                             PrintBoard();
                             Console.WriteLine($"Переміг гравець {currentPlayer}!");
                             gameRunning = false;
@@ -42,6 +44,7 @@ class Program
 
                             if(allFilled)
                             {
+                                Console.Clear();
                                 PrintBoard();
                                 Console.WriteLine("Нічия!");
                                 gameRunning = false;
